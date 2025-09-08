@@ -1,7 +1,7 @@
 ---
 title: "In Class Lab - DIY Functions"
-author: "Dr. Shoemaker"
-date: "DATA 2401"
+author: "George Hixson"
+date: "9/8/25"
 output: html_document
 ---
 **Note: Your exam will be in a similar format to this (RMarkdown File with Questions and Code chunks for your answers), so make sure you have the process for knitting to html working.** 
@@ -16,7 +16,13 @@ The questions from your notes today are below, please copy your answers them her
 1. Write your own function that takes the temperature in Fahrenheit as an argument and returns the Celcius equivalent. 
 
 ```{R}
+celcius_c = function(faren) {
+  celc = (faren - 32) * (5/9)
+  return (celc)
+}
 
+
+celcius_c(212)
 
 ```
 
@@ -24,7 +30,14 @@ The questions from your notes today are below, please copy your answers them her
 
 
 ```{r}
+celcius_c = function(faren, feet) {
+  celc = (faren - 32) * (5/9)
+  meter = 0.3048 * feet
+  return (c(celc, meter))
+}
 
+
+celcius_c(212, 5)
 
 ```
 
@@ -32,15 +45,30 @@ The questions from your notes today are below, please copy your answers them her
 3. Write a function that prints out a statement of whether the number passed as an argument is positive, negative or 0. 
 
 ```{R}
-
-
+val_u = function(num) {
+  if (num > 0) {
+    return("The number is positive")
+  } else if (num < 0) {
+    return("The number is negative")
+  } else {
+    return("The number is 0")
+  }
+}
+val_u(-3)
 ```
 
 4. Write a function that returns the absolute value of the number passed as an argument.
    + Don't use `abs()`. Use the flow from problem 1 and multiply by negative one as necessary. 
    
 ```{r}
-
+ab_s = function(num) {
+  if (num < 0) {
+    return(num * -1)
+  } else {
+    return(num)
+  }
+}
+ab_s(-4)
 
 ```
 
@@ -48,8 +76,16 @@ The questions from your notes today are below, please copy your answers them her
    + There are functions that check and return T/F: `is.numeric()` or `is.character()` would be relevant here
    
 ```{r}
-
-
+ab_s = function(num) {
+  if (is.character(num)) {
+    print("Please pass a numerical value to this function")
+  } else if (num < 0) {
+    return(num *-1)
+  } else {
+    return(num)
+  }
+}
+ab_s(-100)
 
 ```
    
